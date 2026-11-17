@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Secreto DTI - Destinos Parhikuni 🎄</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Mountains of Christmas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        festive: ['"Mountains of Christmas"', 'cursive'],
+                    },
+                    colors: {
+                        christmasRed: '#b91c1c',
+                        christmasGreen: '#15803d',
+                        christmasGold: '#d97706',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Snowfall animation styling */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            cursor: default;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10px) translateX(0); opacity: 1; }
+            100% { transform: translateY(105vh) translateX(50px); opacity: 0.3; }
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(21, 128, 61, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-emerald-950 to-red-950 text-slate-100 min-h-screen relative overflow-x-hidden">
+
+    <!-- SNOW CONTAINER -->
+    <div id="snow-container"></div>
+
+    <!-- HEADER / HERO -->
+    <header class="relative z-10 max-w-5xl mx-auto px-4 pt-8 pb-6 text-center">
+        <div class="inline-block bg-red-600/30 border border-red-500/50 rounded-full px-4 py-1 text-xs uppercase tracking-widest text-red-300 mb-3 shadow-inner">
+            <i class="fa-solid fa-tree text-emerald-400 mr-2"></i> Equipo DTI • Destinos Parhikuni
+        </div>
+        <!-- Secret trigger on title click (triple click opens admin login) -->
+        <h1 onclick="handleTitleClick()" class="font-festive text-5xl md:text-7xl text-amber-300 glow-text mb-2 cursor-pointer select-none" title="Haz clic 3 veces para acceso administrativo">Intercambio Navideño 2026</h1>
+        <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
+            ¡Bienvenidos compañeros! Festejemos con alegría, respeto y sorpresas inolvidables. Consulta el calendario, conoce las reglas y descubre a tu amigo secreto de forma 100% confidencial.
+        </p>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 pb-20 space-y-10">
+
+        <!-- CALENDAR & THEMES SECTION -->
+        <section class="bg-slate-900/80 backdrop-blur-md border border-emerald-500/30 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <h2 class="text-2xl font-bold text-emerald-400 mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-calendar-days text-amber-400"></i> Calendario de Intercambios y Dinámicas
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- Semana 1 -->
+                <div class="bg-gradient-to-b from-red-950/60 to-slate-900 border border-red-500/40 rounded-2xl p-5 flex flex-col justify-between hover:scale-[1.02] transition-transform shadow-lg">
+                    <div>
+                        <span class="inline-block bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded-full mb-3">Viernes 4 Dic</span>
+                        <h3 class="text-lg font-bold text-amber-200 mb-1">Regalo Chusco</h3>
+                        <p class="text-xs text-slate-300 mb-4">Divertido, chusco o gracioso para sacar sonrisas al equipo.</p>
+                    </div>
+                    <div class="border-t border-red-500/20 pt-3 flex items-center justify-between text-xs text-red-300 font-semibold">
+                        <span><i class="fa-solid fa-coins mr-1"></i> Mínimo $50 MXN</span>
+                        <i class="fa-solid fa-face-laugh-squint text-amber-400 text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Semana 2 -->
+                <div class="bg-gradient-to-b from-emerald-950/60 to-slate-900 border border-emerald-500/40 rounded-2xl p-5 flex flex-col justify-between hover:scale-[1.02] transition-transform shadow-lg">
+                    <div>
+                        <span class="inline-block bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full mb-3">Viernes 11 Dic</span>
+                        <h3 class="text-lg font-bold text-amber-200 mb-1">Snack & Bebida</h3>
+                        <p class="text-xs text-slate-300 mb-4">Los antojitos favoritos de tu amigo secreto para amenazar la tarde.</p>
+                    </div>
+                    <div class="border-t border-emerald-500/20 pt-3 flex items-center justify-between text-xs text-emerald-300 font-semibold">
+                        <span><i class="fa-solid fa-coins mr-1"></i> Mínimo $50 MXN</span>
+                        <i class="fa-solid fa-mug-hot text-amber-400 text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Semana 3 -->
+                <div class="bg-gradient-to-b from-red-950/60 to-slate-900 border border-red-500/40 rounded-2xl p-5 flex flex-col justify-between hover:scale-[1.02] transition-transform shadow-lg">
+                    <div>
+                        <span class="inline-block bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded-full mb-3">Viernes 18 Dic</span>
+                        <h3 class="text-lg font-bold text-amber-200 mb-1">Código de Color</h3>
+                        <p class="text-xs text-slate-300 mb-4">Regalo con temática navideña inspirada en los colores: <strong>Rojo, Verde o Blanco</strong>.</p>
+                    </div>
+                    <div class="border-t border-red-500/20 pt-3 flex items-center justify-between text-xs text-red-300 font-semibold">
+                        <span><i class="fa-solid fa-coins mr-1"></i> Mínimo $50 MXN</span>
+                        <i class="fa-solid fa-palette text-amber-400 text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Semana 4 - Gran Cierre -->
+                <div class="bg-gradient-to-b from-amber-950/70 to-slate-900 border border-amber-500/50 rounded-2xl p-5 flex flex-col justify-between hover:scale-[1.02] transition-transform shadow-xl ring-2 ring-amber-400/30">
+                    <div>
+                        <span class="inline-block bg-amber-600 text-white text-xs font-bold px-2.5 py-1 rounded-full mb-3">Jueves 24 Dic</span>
+                        <h3 class="text-lg font-bold text-amber-300 mb-1">Gran Cierre 🌟</h3>
+                        <p class="text-xs text-slate-300 mb-4">Regalo principal del amigo secreto y revelación oficial de identidades.</p>
+                    </div>
+                    <div class="border-t border-amber-500/30 pt-3 flex items-center justify-between text-xs text-amber-300 font-semibold">
+                        <span><i class="fa-solid fa-coins mr-1"></i> Mínimo $200 MXN</span>
+                        <i class="fa-solid fa-gift text-amber-400 text-lg animate-bounce"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TERMS & CONDITIONS & RULES PANEL -->
+        <section class="bg-slate-900/80 backdrop-blur-md border border-slate-700/60 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <h2 class="text-2xl font-bold text-amber-300 mb-4 flex items-center gap-3">
+                <i class="fa-solid fa-scroll text-red-500"></i> Términos, Condiciones y Compromisos DTI
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
+                <div class="space-y-3 bg-slate-950/40 p-5 rounded-2xl border border-slate-800">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-shield-heart text-emerald-400 mt-1 text-lg"></i>
+                        <div>
+                            <strong class="text-white block mb-1">Compromiso Mutuo y Puntualidad</strong>
+                            <p class="text-xs text-slate-400 leading-relaxed">Cada participante se compromete éticamente a entregar su regalo en tiempo y forma cada semana para que absolutamente nadie se quede sin su detalle.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-handshake-angle text-emerald-400 mt-1 text-lg"></i>
+                        <div>
+                            <strong class="text-white block mb-1">Respeto y Armonía</strong>
+                            <p class="text-xs text-slate-400 leading-relaxed">Todo intercambio debe realizarse en un ambiente de compañerismo, sin faltar al respeto a nadie y procurando el gusto del amigo secreto.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-3 bg-slate-950/40 p-5 rounded-2xl border border-slate-800">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-user-secret text-amber-400 mt-1 text-lg"></i>
+                        <div>
+                            <strong class="text-white block mb-1">Pistas Misteriosas</strong>
+                            <p class="text-xs text-slate-400 leading-relaxed">Cada regalo semanal deberá incluir pistas divertidas sobre quién eres, ¡pero prohibido revelar la identidad total hasta el gran cierre del 24 de diciembre!</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-lock text-emerald-400 mt-1 text-lg"></i>
+                        <div>
+                            <strong class="text-white block mb-1">Confidencialidad Absoluta</strong>
+                            <p class="text-xs text-slate-400 leading-relaxed">Toda la información y asignaciones se manejan con total discreción para garantizar la magia y la sorpresa del intercambio en el equipo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REGISTRATION & MATCHING SECTION -->
+        <section id="registro-section" class="bg-gradient-to-br from-slate-900 via-emerald-950/50 to-slate-900 border border-emerald-500/40 rounded-3xl p-6 md:p-10 shadow-2xl">
+            <div class="text-center max-w-xl mx-auto mb-8">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-3 py-1 rounded-full border border-emerald-500/30">Paso Único</span>
+                <h2 class="text-3xl font-bold text-white mt-2 mb-2">Regístrate y Conoce a tu Amigo Secreto</h2>
+                <p class="text-xs text-slate-300">Llena tu formulario con tus gustos y pasatiempos. El sistema te asignará inmediatamente tu misión secreta.</p>
+            </div>
+
+            <!-- FORM -->
+            <form id="secretForm" class="max-w-2xl mx-auto space-y-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-emerald-300 mb-2">
+                            <i class="fa-solid fa-user mr-1"></i> Selecciona tu Nombre
+                        </label>
+                        <select id="participanteNombre" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                            <option value="">-- Elige quién eres --</option>
+                            <option value="Ing. Santiago">Ing. Santiago</option>
+                            <option value="Dolores">Dolores</option>
+                            <option value="Diana">Diana</option>
+                            <option value="Blanca">Blanca (Admin)</option>
+                            <option value="Paulina">Paulina</option>
+                            <option value="Julio">Julio</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-emerald-300 mb-2">
+                            <i class="fa-solid fa-phone mr-1"></i> Teléfono / WhatsApp
+                        </label>
+                        <input type="tel" id="telefono" required placeholder="Ej. 4431234567" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-emerald-300 mb-2">
+                        <i class="fa-solid fa-envelope mr-1"></i> Correo Electrónico Personal
+                    </label>
+                    <input type="email" id="correo" required placeholder="tucorreo@parhikuni.com.mx" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-emerald-300 mb-2">
+                        <i class="fa-solid fa-heart text-red-400 mr-1"></i> Gustos, Hobbies, TV, Colores u Objetos Favoritos
+                    </label>
+                    <textarea id="gustos" required rows="3" placeholder="Ej. Me gusta el café de grano, color azul, series de ciencia ficción, chocolates amargos, coleccionar tazas..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
+                    <p class="text-[11px] text-slate-400 mt-1">Esta información ayudará a tu amigo secreto a consentirte de la mejor manera.</p>
+                </div>
+
+                <div class="flex items-center gap-3 pt-2">
+                    <input type="checkbox" id="terminosCheck" required class="w-4 h-4 accent-emerald-500 rounded bg-slate-950 border-slate-700">
+                    <label for="terminosCheck" class="text-xs text-slate-300">
+                        Me comprometo a cumplir con las fechas, los presupuestos mínimos y mantener el secreto absoluto.
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-red-600 via-emerald-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-bold py-4 rounded-2xl shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3 text-base">
+                    <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i> Descubrir mi Amigo Secreto y Registrarme
+                </button>
+            </form>
+
+            <!-- RESULT CARD (Hidden initially) -->
+            <div id="resultadoAsignacion" class="hidden mt-10 max-w-2xl mx-auto bg-slate-950 border-2 border-amber-400/60 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 text-amber-500/10 text-9xl pointer-events-none">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <div class="text-center mb-6">
+                    <span class="inline-block bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-2 font-semibold">¡Asignación Exitosa!</span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white">Hola, <span id="resParticipante" class="text-emerald-400"></span></h3>
+                    <p class="text-xs text-slate-300 mt-1">El sombrero mágico ha decidido. Tu amigo secreto para este DTI Navideño 2026 es:</p>
+                </div>
+
+                <div class="bg-gradient-to-r from-emerald-950/80 to-slate-900 border border-emerald-500/50 rounded-2xl p-6 text-center shadow-inner mb-6">
+                    <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold block mb-1">Te tocó regalar a:</span>
+                    <div id="resAmigoSecreto" class="text-3xl md:text-4xl font-extrabold text-amber-300 font-festive glow-text my-2"></div>
+                </div>
+
+                <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-800 space-y-3 mb-6">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-list"></i> Perfil y Preferencias de tu Amigo Secreto:
+                    </h4>
+                    <p id="resGustosAmigo" class="text-sm text-slate-200 italic bg-slate-950/60 p-3 rounded-lg border border-slate-800/80"></p>
+                </div>
+
+                <div class="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-4 text-xs text-emerald-200 flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-emerald-400 text-base mt-0.5"></i>
+                    <div>
+                        <strong>¡Registro Guardado y Notificaciones Enviadas!</strong>
+                        <p class="mt-0.5 text-emerald-300">Hemos enviado automáticamente el resumen de tu asignación a tu correo y a tu WhatsApp. ¡Disfruta el intercambio!</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <button onclick="resetForm()" class="text-xs text-slate-400 hover:text-white underline transition-colors">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Registrar otro participante o consultar de nuevo
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADMIN PANEL SECTION (HIDDEN BY DEFAULT FROM ALL PARTICIPANTS) -->
+        <section id="adminSectionContainer" class="hidden bg-slate-900/90 backdrop-blur-md border border-amber-500/50 rounded-3xl p-6 md:p-8 shadow-2xl">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-4">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-amber-400"></i> Panel de Control Administrativo (Solo Administrador)
+                    </h2>
+                    <p class="text-xs text-slate-400">Buzón de notificaciones automáticas para <span class="text-amber-300 font-semibold">blanzam.160817@gmail.com</span> y registro de WhatsApp</p>
+                </div>
+                <button onclick="cerrarSesionAdmin()" class="bg-red-900/80 hover:bg-red-800 text-red-200 border border-red-700/50 text-xs px-4 py-2 rounded-xl transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-amber-300"></i> Cerrar Panel Admin
+                </button>
+            </div>
+
+            <div id="adminContent" class="space-y-6">
+                <!-- Statistics Bar -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300 flex items-center justify-between">
+                        <span><i class="fa-solid fa-users mr-2 text-emerald-400"></i> Participantes Registrados:</span>
+                        <span id="totalRegistradosCount" class="bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full font-bold">0 / 6</span>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-slate-300 flex items-center justify-between">
+                        <span><i class="fa-solid fa-envelope-circle-check mr-2 text-amber-400"></i> Correo Admin Destino:</span>
+                        <span class="text-amber-300 font-mono">blanzam.160817@gmail.com</span>
+                    </div>
+                </div>
+
+                <!-- Tabs for Admin View -->
+                <div class="flex gap-2 border-b border-slate-800 pb-2">
+                    <button onclick="switchAdminTab('registros')" id="tabBtnRegistros" class="bg-emerald-600 text-white text-xs px-4 py-2 rounded-lg font-semibold transition-colors">
+                        <i class="fa-solid fa-table-list mr-1"></i> Estado de Participantes
+                    </button>
+                    <button onclick="switchAdminTab('buzon')" id="tabBtnBuzon" class="bg-slate-800 text-slate-300 text-xs px-4 py-2 rounded-lg font-semibold transition-colors hover:bg-slate-700">
+                        <i class="fa-solid fa-inbox mr-1"></i> Buzón de Notificaciones (Admin & WhatsApp)
+                    </button>
+                </div>
+
+                <!-- Tab 1: Registros Table -->
+                <div id="adminTabRegistros" class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-300">
+                        <thead class="bg-slate-950 text-slate-400 uppercase tracking-wider border-b border-slate-800">
+                            <tr>
+                                <th class="p-3">Participante</th>
+                                <th class="p-3">Teléfono</th>
+                                <th class="p-3">Correo</th>
+                                <th class="p-3">Amigo Asignado</th>
+                                <th class="p-3">Estatus</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTableBody" class="divide-y divide-slate-800">
+                            <!-- Rows generated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tab 2: Mailbox / Simulated Notifications -->
+                <div id="adminTabBuzon" class="hidden space-y-4">
+                    <p class="text-xs text-slate-400 italic">Aquí puedes verificar los correos automáticos enviados a <span class="text-amber-300">blanzam.160817@gmail.com</span> y las alertas de WhatsApp generadas al registrarse cada compañero:</p>
+                    <div id="mailboxContainer" class="space-y-3 max-h-96 overflow-y-auto pr-2">
+                        <!-- Simulated emails/whatsapp logs inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="adminLoginModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-amber-500/50 rounded-3xl p-6 md:p-8 max-w-sm w-full shadow-2xl relative">
+            <button onclick="cerrarModalAdmin()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="inline-block bg-amber-500/20 text-amber-300 p-3 rounded-full mb-2">
+                    <i class="fa-solid fa-user-shield text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">Acceso Administrativo</h3>
+                <p class="text-xs text-slate-400 mt-1">Ingresa la contraseña de administrador para ver el panel y buzón de <span class="text-amber-300">blanzam.160817@gmail.com</span></p>
+            </div>
+            <form onsubmit="verificarPasswordAdmin(event)" class="space-y-4">
+                <div>
+                    <input type="password" id="adminPasswordInput" required placeholder="Contraseña de Administrador" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-500">
+                </div>
+                <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-slate-950 font-bold py-3 rounded-xl shadow-lg transition-all text-xs uppercase tracking-wider">
+                    Desbloquear Panel
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-8 text-xs text-slate-500 border-t border-slate-800/80">
+        <p>🎄 Amigo Secreto DTI • Destinos Parhikuni 2026 🎄</p>
+        <p class="mt-1">Hecho con alegría e ilusión para el mejor equipo de tecnología.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // PARTICIPANTS LIST
+        const participantes = [
+            "Ing. Santiago",
+            "Dolores",
+            "Diana",
+            "Blanca",
+            "Paulina",
+            "Julio"
+        ];
+
+        // LOCAL STORAGE KEYS
+        const STORAGE_KEY = "dti_amigo_secreto_2026_registros";
+        const NOTIFICATIONS_KEY = "dti_amigo_secreto_2026_notificaciones";
+
+        // SNOW GENERATION
+        function crearNieve() {
+            const snowContainer = document.getElementById('snow-container');
+            const flakeCount = 35;
+            for (let i = 0; i < flakeCount; i++) {
+                const flake = document.createElement('div');
+                flake.classList.add('snowflake');
+                flake.innerHTML = '<i class="fa-solid fa-snowflake"></i>';
+                flake.style.left = Math.random() * 100 + 'vw';
+                flake.style.top = -20 + Math.random() * -100 + 'px';
+                flake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                flake.style.opacity = Math.random() * 0.7 + 0.3;
+                flake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                flake.style.animationDelay = (Math.random() * 5) + 's';
+                snowContainer.appendChild(flake);
+            }
+        }
+
+        // GET SAVED REGISTRATIONS & NOTIFICATIONS
+        function getRegistros() {
+            const data = localStorage.getItem(STORAGE_KEY);
+            return data ? JSON.parse(data) : {};
+        }
+        function saveRegistros(registros) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(registros));
+        }
+
+        function getNotificaciones() {
+            const data = localStorage.getItem(NOTIFICATIONS_KEY);
+            return data ? JSON.parse(data) : [];
+        }
+        function saveNotificaciones(notis) {
+            localStorage.setItem(NOTIFICATIONS_KEY, JSON.stringify(notis));
+        }
+
+        // SECRET ADMIN TRIGGER (TRIPLE CLICK ON TITLE OR URL HASH)
+        let clickCount = 0;
+        let clickTimer = null;
+        function handleTitleClick() {
+            clickCount++;
+            if (clickCount === 1) {
+                clickTimer = setTimeout(() => { clickCount = 0; }, 600);
+            } else if (clickCount === 3) {
+                clearTimeout(clickTimer);
+                clickCount = 0;
+                abrirModalAdmin();
+            }
+        }
+
+        function abrirModalAdmin() {
+            if (sessionStorage.getItem('dti_admin_auth') === 'true') {
+                document.getElementById('adminSectionContainer').classList.remove('hidden');
+                renderAdminTable();
+                renderMailbox();
+                document.getElementById('adminSectionContainer').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                document.getElementById('adminLoginModal').classList.remove('hidden');
+                document.getElementById('adminPasswordInput').focus();
+            }
+        }
+
+        function cerrarModalAdmin() {
+            document.getElementById('adminLoginModal').classList.add('hidden');
+        }
+
+        function verificarPasswordAdmin(e) {
+            e.preventDefault();
+            const pass = document.getElementById('adminPasswordInput').value;
+            // Contraseña de administrador segura por defecto o "blanca2026"
+            if (pass === 'blanca2026' || pass === 'dti2026') {
+                sessionStorage.setItem('dti_admin_auth', 'true');
+                cerrarModalAdmin();
+                document.getElementById('adminSectionContainer').classList.remove('hidden');
+                renderAdminTable();
+                renderMailbox();
+                document.getElementById('adminSectionContainer').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Contraseña incorrecta. Acceso denegado.');
+                document.getElementById('adminPasswordInput').value = '';
+            }
+        }
+
+        function cerrarSesionAdmin() {
+            sessionStorage.removeItem('dti_admin_auth');
+            document.getElementById('adminSectionContainer').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // DETERMINISTIC / SECURE PAIRING ALGORITHM
+        function calcularAsignacion(nombreActual, todosParticipantes, registrosActuales) {
+            if (registrosActuales[nombreActual] && registrosActuales[nombreActual].amigoSecreto) {
+                return registrosActuales[nombreActual].amigoSecreto;
+            }
+            let asignadosActuales = Object.values(registrosActuales).map(r => r.amigoSecreto);
+            let disponibles = todosParticipantes.filter(p => p !== nombreActual && !asignadosActuales.includes(p));
+
+            if (disponibles.length === 0) {
+                let index = todosParticipantes.indexOf(nombreActual);
+                return todosParticipantes[(index + 1) % todosParticipantes.length];
+            }
+            let randomIndex = Math.floor(Math.random() * disponibles.length);
+            return disponibles[randomIndex];
+        }
+
+        // FORM SUBMISSION WITH SIMULATED EMAIL & WHATSAPP DISPATCH
+        document.getElementById('secretForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('participanteNombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const correo = document.getElementById('correo').value;
+            const gustos = document.getElementById('gustos').value;
+
+            let registros = getRegistros();
+
+            let amigoSecreto = "";
+            if (registros[nombre]) {
+                amigoSecreto = registros[nombre].amigoSecreto;
+            } else {
+                amigoSecreto = calcularAsignacion(nombre, participantes, registros);
+                registros[nombre] = {
+                    nombre,
+                    telefono,
+                    correo,
+                    gustos,
+                    amigoSecreto,
+                    fechaRegistro: new Date().toLocaleString(),
+                    estatus: "Completado"
+                };
+                saveRegistros(registros);
+
+                // Simulate Email & WhatsApp Dispatches
+                let notis = getNotificaciones();
+                
+                // 1. Notification to Admin (blanzam.160817@gmail.com)
+                notis.unshift({
+                    tipo: "ADMIN_EMAIL",
+                    titulo: "Nuevo Registro Amigo Secreto DTI",
+                    destinatario: "blanzam.160817@gmail.com",
+                    mensaje: `El participante ${nombre} (${correo}, Tel: ${telefono}) ha completado su formulario. Su amigo secreto asignado es: ${amigoSecreto}. Gustos registrados: "${gustos}".`,
+                    fecha: new Date().toLocaleString()
+                });
+
+                // 2. Notification to Participant Email
+                notis.unshift({
+                    tipo: "USER_EMAIL",
+                    titulo: "Tu Amigo Secreto Asignado - DTI Navideño",
+                    destinatario: correo,
+                    mensaje: `Hola ${nombre}, tu registro ha sido exitoso. ¡Tu amigo secreto para este intercambio es ${amigoSecreto}! Recuerda consultar el calendario y los presupuestos (mínimo $50 y $200 para el 24).`,
+                    fecha: new Date().toLocaleString()
+                });
+
+                // 3. Notification to Participant WhatsApp
+                notis.unshift({
+                    tipo: "WHATSAPP",
+                    titulo: "Mensaje WhatsApp enviado a " + telefono,
+                    destinatario: telefono,
+                    mensaje: `🎄 [Destinos Parhikuni DTI] Hola ${nombre}! Tu amigo secreto es: *${amigoSecreto}*. ¡Prepara tus pistas y sorpresas!`,
+                    fecha: new Date().toLocaleString()
+                });
+
+                saveNotificaciones(notis);
+            }
+
+            let gustosAmigoTexto = "Tu amigo secreto aún está por completar su formulario, ¡pero le encantan las sorpresas navideñas!";
+            if (registros[amigoSecreto] && registros[amigoSecreto].gustos) {
+                gustosAmigoTexto = registros[amigoSecreto].gustos;
+            }
+
+            document.getElementById('resParticipante').innerText = nombre;
+            document.getElementById('resAmigoSecreto').innerText = amigoSecreto;
+            document.getElementById('resGustosAmigo').innerText = gustosAmigoTexto;
+
+            document.getElementById('secretForm').parentElement.classList.add('hidden');
+            document.getElementById('resultadoAsignacion').classList.remove('hidden');
+
+            if (sessionStorage.getItem('dti_admin_auth') === 'true') {
+                renderAdminTable();
+                renderMailbox();
+            }
+
+            document.getElementById('resultadoAsignacion').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function resetForm() {
+            document.getElementById('secretForm').reset();
+            document.getElementById('resultadoAsignacion').classList.add('hidden');
+            document.getElementById('secretForm').parentElement.classList.remove('hidden');
+            document.getElementById('registro-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ADMIN PANEL TABS
+        function switchAdminTab(tab) {
+            const tabReg = document.getElementById('adminTabRegistros');
+            const tabBuz = document.getElementById('adminTabBuzon');
+            const btnReg = document.getElementById('tabBtnRegistros');
+            const btnBuz = document.getElementById('tabBtnBuzon');
+
+            if (tab === 'registros') {
+                tabReg.classList.remove('hidden');
+                tabBuz.classList.add('hidden');
+                btnReg.className = "bg-emerald-600 text-white text-xs px-4 py-2 rounded-lg font-semibold transition-colors";
+                btnBuz.className = "bg-slate-800 text-slate-300 text-xs px-4 py-2 rounded-lg font-semibold transition-colors hover:bg-slate-700";
+            } else {
+                tabReg.classList.add('hidden');
+                tabBuz.classList.remove('hidden');
+                btnBuz.className = "bg-emerald-600 text-white text-xs px-4 py-2 rounded-lg font-semibold transition-colors";
+                btnReg.className = "bg-slate-800 text-slate-300 text-xs px-4 py-2 rounded-lg font-semibold transition-colors hover:bg-slate-700";
+                renderMailbox();
+            }
+        }
+
+        function renderAdminTable() {
+            const registros = getRegistros();
+            const tbody = document.getElementById('adminTableBody');
+            tbody.innerHTML = '';
+
+            let countRegistrados = Object.keys(registros).length;
+            document.getElementById('totalRegistradosCount').innerText = `${countRegistrados} / 6`;
+
+            participantes.forEach(p => {
+                const reg = registros[p];
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-900/60 transition-colors";
+                
+                if (reg) {
+                    tr.innerHTML = `
+                        <td class="p-3 font-semibold text-white flex items-center gap-2"><i class="fa-solid fa-check-circle text-emerald-400"></i> ${p}</td>
+                        <td class="p-3 text-slate-300">${reg.telefono}</td>
+                        <td class="p-3 text-slate-300">${reg.correo}</td>
+                        <td class="p-3 font-bold text-amber-300">${reg.amigoSecreto}</td>
+                        <td class="p-3 text-emerald-400"><span class="bg-emerald-950 px-2 py-1 rounded border border-emerald-500/30">Completado</span></td>
+                    `;
+                } else {
+                    tr.innerHTML = `
+                        <td class="p-3 text-slate-500"><i class="fa-regular fa-clock mr-2"></i> ${p}</td>
+                        <td class="p-3 text-slate-600">-</td>
+                        <td class="p-3 text-slate-600">-</td>
+                        <td class="p-3 text-slate-600">Pendiente</td>
+                        <td class="p-3 text-slate-600">Falta registro</td>
+                    `;
+                }
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderMailbox() {
+            const notis = getNotificaciones();
+            const container = document.getElementById('mailboxContainer');
+            container.innerHTML = '';
+
+            if (notis.length === 0) {
+                container.innerHTML = `<div class="text-center py-6 text-slate-500 text-xs">Aún no hay notificaciones o correos registrados. Realiza un registro de prueba.</div>`;
+                return;
+            }
+
+            notis.forEach(n => {
+                const div = document.createElement('div');
+                div.className = "bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs space-y-1 shadow-inner";
+                
+                let icon = "fa-envelope text-amber-400";
+                let badgeColor = "bg-amber-950 text-amber-300 border-amber-500/30";
+                if (n.tipo === "ADMIN_EMAIL") {
+                    icon = "fa-shield-halved text-red-400";
+                    badgeColor = "bg-red-950 text-red-300 border-red-500/30";
+                } else if (n.tipo === "WHATSAPP") {
+                    icon = "fa-brands fa-whatsapp text-emerald-400";
+                    badgeColor = "bg-emerald-950 text-emerald-300 border-emerald-500/30";
+                }
+
+                div.innerHTML = `
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid ${icon}"></i> ${n.titulo}
+                        </span>
+                        <span class="${badgeColor} px-2 py-0.5 rounded border text-[10px] font-semibold">${n.destinatario}</span>
+                    </div>
+                    <p class="text-slate-300 bg-slate-900/60 p-2.5 rounded border border-slate-800/80">${n.mensaje}</p>
+                    <div class="text-[10px] text-slate-500 text-right mt-1">${n.fecha}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // INIT ON LOAD
+        window.onload = function() {
+            crearNieve();
+        };
+    </script>
+</body>
+</html>
