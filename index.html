@@ -64,35 +64,36 @@
         <!-- Calendario y Reglas -->
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl backdrop-blur-md">
             <h2 class="text-xl font-bold text-red-400 mb-4 flex items-center gap-2">
-                🎁 Cronograma de Regalos y Fechas (Viernes)
+                🎁 Cronograma de Regalos y Presupuestos (Viernes)
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
                 <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
                     <span class="text-xs text-red-400 font-bold">Viernes 4 Dic</span>
                     <h3 class="font-semibold text-white mt-1 text-sm">Regalo Chusco</h3>
-                    <p class="text-xs text-slate-400 mt-1">Divertido y gracioso<br>Mínimo $50</p>
+                    <p class="text-xs text-slate-400 mt-1">Divertido y gracioso<br><strong>$50 a $80</strong></p>
                 </div>
                 <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
                     <span class="text-xs text-red-400 font-bold">Viernes 11 Dic</span>
                     <h3 class="font-semibold text-white mt-1 text-sm">Snack y Bebida</h3>
-                    <p class="text-xs text-slate-400 mt-1">Delicia favorita<br>Mínimo $50</p>
+                    <p class="text-xs text-slate-400 mt-1">Delicia favorita<br><strong>$50 a $80</strong></p>
                 </div>
                 <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/50">
                     <span class="text-xs text-red-400 font-bold">Viernes 18 Dic</span>
                     <h3 class="font-semibold text-white mt-1 text-sm">Código de Color</h3>
-                    <p class="text-xs text-slate-400 mt-1">Tematica navideña:Rojo, Verde o Blanco<br>Mínimo $50</p>
+                    <p class="text-xs text-slate-400 mt-1">Rojo, Verde o Blanco<br><strong>$50 a $80</strong></p>
                 </div>
                 <div class="bg-slate-800/60 p-4 rounded-xl border border-green-500/30 bg-green-950/20">
                     <span class="text-xs text-green-400 font-bold">Jueves 24 Dic</span>
                     <h3 class="font-semibold text-white mt-1 text-sm">Gran Cierre</h3>
-                    <p class="text-xs text-slate-300 mt-1">Revelación y Regalo Principal<br>Mínimo $200</p>
+                    <p class="text-xs text-slate-300 mt-1">Revelación y Principal<br><strong>$200 a $300</strong></p>
                 </div>
             </div>
 
             <!-- Términos y Condiciones -->
             <div class="mt-6 pt-6 border-t border-slate-800 text-xs text-slate-400 space-y-2">
                 <p>⭐ <strong>Compromiso:</strong> Participar implica el compromiso absoluto de cumplir cada semana para que nadie se quede sin su regalo.</p>
-                <p>⭐ <strong>Ambiente sano:</strong> Todo con respeto, buena actitud y buscando que sea del completo agrado del amigo secreto.</p>
+                <p>⭐ <strong>Al gusto del amigo secreto:</strong> Los obsequios deben elegirse tomando muy en cuenta los gustos, pasatiempos e ideas que cada participante registró en su información.</p>
+                <p>⭐ <strong>Ambiente sano:</strong> Todo con respeto, buena actitud y buscando que sea del completo agrado del compañero.</p>
                 <p>⭐ <strong>Las Pistas:</strong> Cada regalo debe llevar pistas divertidas de quién eres, pero <strong>sin revelar tu identidad</strong> hasta la gran revelación final el 24 de diciembre.</p>
             </div>
         </div>
@@ -117,7 +118,7 @@
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center">✕</button>
             
             <h3 class="text-2xl font-bold text-red-500 mb-2">Inscríbete a tu Amigo Secreto</h3>
-            <p class="text-slate-400 text-xs mb-6">Llena tus datos para que tu amigo secreto sepa qué regalarte en las dinámicas y descubre quién te tocó.</p>
+            <p class="text-slate-400 text-xs mb-6">Llena tus datos para que tu amigo secreto sepa qué regalarte (Semanales: $50-$80 | Principal: $200-$300).</p>
 
             <form id="secretForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
                 <div>
@@ -155,12 +156,12 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Posibles regalos que te gustaría para el especial (fechas semanales) *</label>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Posibles regalos para el especial semanal ($50 - $80) *</label>
                     <input type="text" id="weeklyIdeas" required placeholder="Ej. Chocolates, café de grano, calcetines navideños..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-red-500">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">¿Qué te gustaría de Regalo Principal (24 Dic)? *</label>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Regalo Principal para el 24 Dic ($200 - $300) *</label>
                     <input type="text" id="mainGift" required placeholder="Ej. Un termo Stanley, un libro de misterio, suéter talla M..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-red-500">
                 </div>
 
@@ -183,15 +184,15 @@
             </div>
 
             <div class="bg-slate-950/60 p-4 rounded-xl text-left text-xs text-slate-300 space-y-2 mb-6 border border-slate-800">
-                <p class="font-semibold text-red-400 mb-1">📌 Sus gustos y deseos para el intercambio:</p>
+                <p class="font-semibold text-red-400 mb-1">📌 Sus gustos y deseos para cumplir con cariño:</p>
                 <p id="resTargetHobbies" class="italic text-slate-200"></p>
                 <p id="resTargetFavorites" class="text-slate-300"></p>
                 <div class="mt-2 pt-2 border-t border-slate-800">
-                    <span class="font-bold text-amber-400">💡 Ideas para regalos semanales (Especiales):</span>
+                    <span class="font-bold text-amber-400">💡 Ideas semanales ($50 - $80):</span>
                     <p id="resTargetWeekly" class="text-white font-medium mt-0.5"></p>
                 </div>
                 <div class="mt-2 pt-2 border-t border-slate-800">
-                    <span class="font-bold text-emerald-400">🎁 Regalo Principal (24 Dic):</span>
+                    <span class="font-bold text-emerald-400">🎁 Regalo Principal 24 Dic ($200 - $300):</span>
                     <p id="resTargetMainGift" class="text-white font-semibold mt-0.5"></p>
                 </div>
             </div>
@@ -306,123 +307,4 @@
         function closeModal() { document.getElementById('registerModal').classList.add('hidden'); }
 
         function openConsultModal() { document.getElementById('consultModal').classList.remove('hidden'); }
-        function closeConsultModal() { document.getElementById('consultModal').classList.add('hidden'); }
-
-        function closeResultModal() { document.getElementById('resultModal').classList.add('hidden'); }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('participantName').value;
-            const phone = document.getElementById('whatsapp').value;
-            const email = document.getElementById('email').value;
-            const hobbies = document.getElementById('hobbies').value;
-            const favorites = document.getElementById('favorites').value;
-            const weeklyIdeas = document.getElementById('weeklyIdeas').value;
-            const mainGift = document.getElementById('mainGift').value;
-
-            let db = getAssignments();
-            db[name].registered = true;
-            db[name].phone = phone;
-            db[name].email = email;
-            db[name].hobbies = hobbies;
-            db[name].favorites = favorites;
-            db[name].weeklyIdeas = weeklyIdeas;
-            db[name].mainGift = mainGift;
-            localStorage.setItem('dti_assignments', JSON.stringify(db));
-
-            // Registrar notificación simulada para blanzam.160817@gmail.com
-            let notifs = getNotifications();
-            const targetName = db[name].target;
-            notifs.unshift({
-                date: new Date().toLocaleString(),
-                text: `[REGISTRO] ${name} llenó su formato (Ideas semanales: "${weeklyIdeas}", Principal: "${mainGift}"). Correo enviado a blanzam.160817@gmail.com.`
-            });
-            localStorage.setItem('dti_notifications', JSON.stringify(notifs));
-
-            closeModal();
-
-            // Mostrar resultado en pantalla
-            document.getElementById('resParticipant').innerText = name;
-            document.getElementById('resTarget').innerText = targetName;
-            document.getElementById('resTargetHobbies').innerText = "Hobbies: " + db[targetName].hobbies;
-            document.getElementById('resTargetFavorites').innerText = "Favoritos: " + db[targetName].favorites;
-            document.getElementById('resTargetWeekly').innerText = db[targetName].weeklyIdeas || "No especificado";
-            document.getElementById('resTargetMainGift').innerText = db[targetName].mainGift || "No especificado";
-            document.getElementById('resultModal').classList.remove('hidden');
-        }
-
-        function performConsult() {
-            const name = document.getElementById('consultName').value;
-            if (!name) return alert("Por favor selecciona tu nombre.");
-            
-            let db = getAssignments();
-            if (!db[name].registered) {
-                alert("Aún no te has registrado. Por favor usa el botón rojo 'Descubrir mi Amigo Secreto' primero para completar tu formulario.");
-                return;
-            }
-
-            const targetName = db[name].target;
-            closeConsultModal();
-
-            document.getElementById('resParticipant').innerText = name;
-            document.getElementById('resTarget').innerText = targetName;
-            document.getElementById('resTargetHobbies').innerText = "Hobbies: " + db[targetName].hobbies;
-            document.getElementById('resTargetFavorites').innerText = "Favoritos: " + db[targetName].favorites;
-            document.getElementById('resTargetWeekly').innerText = db[targetName].weeklyIdeas || "No especificado";
-            document.getElementById('resTargetMainGift').innerText = db[targetName].mainGift || "No especificado";
-            document.getElementById('resultModal').classList.remove('hidden');
-        }
-
-        function verifyAdmin() {
-            const pass = document.getElementById('adminPass').value;
-            if (pass === 'blanca2026' || pass === 'dti2026') {
-                document.getElementById('adminLoginView').classList.add('hidden');
-                document.getElementById('adminDashboardView').classList.remove('hidden');
-                renderAdminData();
-            } else {
-                alert('Contraseña incorrecta.');
-            }
-        }
-
-        function renderAdminData() {
-            let db = getAssignments();
-            let tableHtml = `<table class="w-full text-left border-collapse text-slate-300">
-                <thead><tr class="border-b border-slate-800 text-amber-400">
-                <th class="p-2">Participante</th><th class="p-2">Estado</th><th class="p-2">Le tocó a</th><th class="p-2">Gustos y Deseos</th>
-                </tr></thead><tbody>`;
-
-            for (let p in db) {
-                let info = db[p];
-                tableHtml += `<tr class="border-b border-slate-900">
-                    <td class="p-2 font-semibold text-white">${p}</td>
-                    <td class="p-2">${info.registered ? '✅ Registrado' : '⏳ Pendiente'}</td>
-                    <td class="p-2 text-red-400 font-bold">${info.target}</td>
-                    <td class="p-2 text-slate-300 text-[11px]">${info.phone ? '<em>Hobbies:</em> ' + info.hobbies + '<br><strong class="text-amber-400">💡 Semanales:</strong> ' + (info.weeklyIdeas || 'N/A') + '<br><strong class="text-emerald-400">🎁 Principal:</strong> ' + (info.mainGift || 'N/A') : '-'}</td>
-                </tr>`;
-            }
-            tableHtml += `</tbody></table>`;
-            document.getElementById('adminParticipantsTable').innerHTML = tableHtml;
-
-            let notifs = getNotifications();
-            let notifHtml = notifs.length ? notifs.map(n => `<div><span class="text-amber-400">[${n.date}]</span> ${n.text}</div>`).join('') : '<div>No hay notificaciones aún.</div>';
-            document.getElementById('adminNotificationsLog').innerHTML = notifHtml;
-        }
-
-        function resetData() {
-            if (confirm("¿Estás segura de reiniciar todos los registros?")) {
-                localStorage.removeItem('dti_assignments');
-                localStorage.removeItem('dti_notifications');
-                alert("Registros reiniciados.");
-                location.reload();
-            }
-        }
-
-        function closeAdminModal() {
-            document.getElementById('adminModal').classList.add('hidden');
-            document.getElementById('adminLoginView').classList.remove('hidden');
-            document.getElementById('adminDashboardView').classList.add('hidden');
-            document.getElementById('adminPass').value = '';
-        }
-    </script>
-</body>
-</html>
+        function closeConsultModal() { document.getElementById
