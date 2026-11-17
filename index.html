@@ -100,11 +100,11 @@
 
         <!-- Botones de Acción (Registro y Consultar) -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <button onclick="openModal()" class="w-full bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold py-4 px-6 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+            <button onclick="openModal()" class="w-full bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-bold py-4 px-6 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3 cursor-pointer">
                 <span class="text-2xl">🎁</span>
                 <span class="text-left"><span class="block text-sm font-normal text-red-200">¿Nuevo registro?</span>Descubrir mi Amigo Secreto</span>
             </button>
-            <button onclick="openConsultModal()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-6 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+            <button onclick="openConsultModal()" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 px-6 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3 cursor-pointer">
                 <span class="text-2xl">🔍</span>
                 <span class="text-left"><span class="block text-sm font-normal text-emerald-200">¿Ya te registraste?</span>Consultar mi Amigo Secreto y Gustos</span>
             </button>
@@ -115,7 +115,7 @@
     <!-- Modal de Registro -->
     <div id="registerModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center">✕</button>
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer">✕</button>
             
             <h3 class="text-2xl font-bold text-red-500 mb-2">Inscríbete a tu Amigo Secreto</h3>
             <p class="text-slate-400 text-xs mb-6">Llena tus datos para que tu amigo secreto sepa qué regalarte (Semanales: $50-$80 | Principal: $200-$300).</p>
@@ -165,7 +165,7 @@
                     <input type="text" id="mainGift" required placeholder="Ej. Un termo Stanley, un libro de misterio, suéter talla M..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-red-500">
                 </div>
 
-                <button type="submit" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition mt-4">
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition mt-4 cursor-pointer">
                     ✨ Guardar y Descubrir mi Amigo Secreto ✨
                 </button>
             </form>
@@ -197,7 +197,7 @@
                 </div>
             </div>
 
-            <button onclick="closeResultModal()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition">
+            <button onclick="closeResultModal()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition cursor-pointer">
                 ¡Entendido, guardar en secreto! 🤫
             </button>
         </div>
@@ -206,7 +206,7 @@
     <!-- Modal de Consulta Segura (Para quien ya se registró) -->
     <div id="consultModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 md:p-8 relative shadow-2xl">
-            <button onclick="closeConsultModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center">✕</button>
+            <button onclick="closeConsultModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer">✕</button>
             
             <h3 class="text-2xl font-bold text-emerald-400 mb-2">Consultar mi Asignación</h3>
             <p class="text-slate-400 text-xs mb-6">Selecciona tu nombre para ver quién te tocó y los gustos que registró.</p>
@@ -224,7 +224,7 @@
                         <option value="Julio">Julio</option>
                     </select>
                 </div>
-                <button onclick="performConsult()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition">
+                <button onclick="performConsult()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition cursor-pointer">
                     🔍 Consultar mi Amigo y sus Gustos
                 </button>
             </div>
@@ -234,19 +234,19 @@
     <!-- Modal de Administrador (Protegido por Contraseña) -->
     <div id="adminModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-4xl w-full p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
-            <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center">✕</button>
+            <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer">✕</button>
             
             <div id="adminLoginView">
                 <h3 class="text-xl font-bold text-amber-400 mb-2">🔐 Acceso Administrativo</h3>
                 <p class="text-slate-400 text-xs mb-4">Ingresa la contraseña de administrador para ver el panel y buzón de <strong>blanzam.160817@gmail.com</strong></p>
                 <input type="password" id="adminPass" placeholder="Contraseña de Administrador" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm mb-4 focus:outline-none focus:border-amber-500">
-                <button onclick="verifyAdmin()" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-3 rounded-xl">Desbloquear Panel</button>
+                <button onclick="verifyAdmin()" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-3 rounded-xl cursor-pointer">Desbloquear Panel</button>
             </div>
 
             <div id="adminDashboardView" class="hidden space-y-6">
                 <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                     <h3 class="text-lg font-bold text-amber-400">📊 Panel de Control DTI 2026</h3>
-                    <button onclick="resetData()" class="text-xs bg-red-900/40 text-red-400 border border-red-800 px-3 py-1.5 rounded-lg hover:bg-red-900">Reiniciar Registros</button>
+                    <button onclick="resetData()" class="text-xs bg-red-900/40 text-red-400 border border-red-800 px-3 py-1.5 rounded-lg hover:bg-red-900 cursor-pointer">Reiniciar Registros</button>
                 </div>
 
                 <div>
@@ -307,4 +307,123 @@
         function closeModal() { document.getElementById('registerModal').classList.add('hidden'); }
 
         function openConsultModal() { document.getElementById('consultModal').classList.remove('hidden'); }
-        function closeConsultModal() { document.getElementById
+        function closeConsultModal() { document.getElementById('consultModal').classList.add('hidden'); }
+
+        function closeResultModal() { document.getElementById('resultModal').classList.add('hidden'); }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('participantName').value;
+            const phone = document.getElementById('whatsapp').value;
+            const email = document.getElementById('email').value;
+            const hobbies = document.getElementById('hobbies').value;
+            const favorites = document.getElementById('favorites').value;
+            const weeklyIdeas = document.getElementById('weeklyIdeas').value;
+            const mainGift = document.getElementById('mainGift').value;
+
+            let db = getAssignments();
+            db[name].registered = true;
+            db[name].phone = phone;
+            db[name].email = email;
+            db[name].hobbies = hobbies;
+            db[name].favorites = favorites;
+            db[name].weeklyIdeas = weeklyIdeas;
+            db[name].mainGift = mainGift;
+            localStorage.setItem('dti_assignments', JSON.stringify(db));
+
+            // Registrar notificación simulada para blanzam.160817@gmail.com
+            let notifs = getNotifications();
+            const targetName = db[name].target;
+            notifs.unshift({
+                date: new Date().toLocaleString(),
+                text: `[REGISTRO] ${name} llenó su formato (Semanales $50-$80: "${weeklyIdeas}", Principal $200-$300: "${mainGift}"). Correo enviado a blanzam.160817@gmail.com.`
+            });
+            localStorage.setItem('dti_notifications', JSON.stringify(notifs));
+
+            closeModal();
+
+            // Mostrar resultado en pantalla
+            document.getElementById('resParticipant').innerText = name;
+            document.getElementById('resTarget').innerText = targetName;
+            document.getElementById('resTargetHobbies').innerText = "Hobbies: " + db[targetName].hobbies;
+            document.getElementById('resTargetFavorites').innerText = "Favoritos: " + db[targetName].favorites;
+            document.getElementById('resTargetWeekly').innerText = db[targetName].weeklyIdeas || "No especificado";
+            document.getElementById('resTargetMainGift').innerText = db[targetName].mainGift || "No especificado";
+            document.getElementById('resultModal').classList.remove('hidden');
+        }
+
+        function performConsult() {
+            const name = document.getElementById('consultName').value;
+            if (!name) return alert("Por favor selecciona tu nombre.");
+            
+            let db = getAssignments();
+            if (!db[name].registered) {
+                alert("Aún no te has registrado. Por favor usa el botón rojo 'Descubrir mi Amigo Secreto' primero para completar tu formulario.");
+                return;
+            }
+
+            const targetName = db[name].target;
+            closeConsultModal();
+
+            document.getElementById('resParticipant').innerText = name;
+            document.getElementById('resTarget').innerText = targetName;
+            document.getElementById('resTargetHobbies').innerText = "Hobbies: " + db[targetName].hobbies;
+            document.getElementById('resTargetFavorites').innerText = "Favoritos: " + db[targetName].favorites;
+            document.getElementById('resTargetWeekly').innerText = db[targetName].weeklyIdeas || "No especificado";
+            document.getElementById('resTargetMainGift').innerText = db[targetName].mainGift || "No especificado";
+            document.getElementById('resultModal').classList.remove('hidden');
+        }
+
+        function verifyAdmin() {
+            const pass = document.getElementById('adminPass').value;
+            if (pass === 'blanca2026' || pass === 'dti2026') {
+                document.getElementById('adminLoginView').classList.add('hidden');
+                document.getElementById('adminDashboardView').classList.remove('hidden');
+                renderAdminData();
+            } else {
+                alert('Contraseña incorrecta.');
+            }
+        }
+
+        function renderAdminData() {
+            let db = getAssignments();
+            let tableHtml = `<table class="w-full text-left border-collapse text-slate-300">
+                <thead><tr class="border-b border-slate-800 text-amber-400">
+                <th class="p-2">Participante</th><th class="p-2">Estado</th><th class="p-2">Le tocó a</th><th class="p-2">Gustos y Deseos ($50-$80 / $200-$300)</th>
+                </tr></thead><tbody>`;
+
+            for (let p in db) {
+                let info = db[p];
+                tableHtml += `<tr class="border-b border-slate-900">
+                    <td class="p-2 font-semibold text-white">${p}</td>
+                    <td class="p-2">${info.registered ? '✅ Registrado' : '⏳ Pendiente'}</td>
+                    <td class="p-2 text-red-400 font-bold">${info.target}</td>
+                    <td class="p-2 text-slate-300 text-[11px]">${info.phone ? '<em>Hobbies:</em> ' + info.hobbies + '<br><strong class="text-amber-400">💡 Semanales ($50-$80):</strong> ' + (info.weeklyIdeas || 'N/A') + '<br><strong class="text-emerald-400">🎁 Principal ($200-$300):</strong> ' + (info.mainGift || 'N/A') : '-'}</td>
+                </tr>`;
+            }
+            tableHtml += `</tbody></table>`;
+            document.getElementById('adminParticipantsTable').innerHTML = tableHtml;
+
+            let notifs = getNotifications();
+            let notifHtml = notifs.length ? notifs.map(n => `<div><span class="text-amber-400">[${n.date}]</span> ${n.text}</div>`).join('') : '<div>No hay notificaciones aún.</div>';
+            document.getElementById('adminNotificationsLog').innerHTML = notifHtml;
+        }
+
+        function resetData() {
+            if (confirm("¿Estás segura de reiniciar todos los registros?")) {
+                localStorage.removeItem('dti_assignments');
+                localStorage.removeItem('dti_notifications');
+                alert("Registros reiniciados.");
+                location.reload();
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+            document.getElementById('adminLoginView').classList.remove('hidden');
+            document.getElementById('adminDashboardView').classList.add('hidden');
+            document.getElementById('adminPass').value = '';
+        }
+    </script>
+</body>
+</html>
