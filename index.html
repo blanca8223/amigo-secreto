@@ -117,7 +117,7 @@
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center">✕</button>
             
             <h3 class="text-2xl font-bold text-red-500 mb-2">Inscríbete a tu Amigo Secreto</h3>
-            <p class="text-slate-400 text-xs mb-6">Llena tus datos para que tu amigo secreto sepa qué regalarte y descubre quién te tocó.</p>
+            <p class="text-slate-400 text-xs mb-6">Llena tus datos para que tu amigo secreto sepa qué regalarte en las dinámicas y descubre quién te tocó.</p>
 
             <form id="secretForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
                 <div>
@@ -125,7 +125,7 @@
                     <select id="participantName" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-red-500">
                         <option value="">-- Elige quién eres --</option>
                         <option value="Ing. Santiago">Ing. Santiago</option>
-                        <option value="Dolores">Dolores</option>
+                        <option value="Madol">Madol</option>
                         <option value="Diana">Diana</option>
                         <option value="Blanca">Blanca</option>
                         <option value="Paulina">Paulina</option>
@@ -152,6 +152,11 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-1">Personajes de TV, Colores u Objetos Favoritos *</label>
                     <input type="text" id="favorites" required placeholder="Ej. Color azul, café, chocolates sin azúcar..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-red-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Posibles regalos que te gustaría para el especial (fechas semanales) *</label>
+                    <input type="text" id="weeklyIdeas" required placeholder="Ej. Chocolates, café de grano, calcetines navideños..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-red-500">
                 </div>
 
                 <div>
@@ -182,7 +187,11 @@
                 <p id="resTargetHobbies" class="italic text-slate-200"></p>
                 <p id="resTargetFavorites" class="text-slate-300"></p>
                 <div class="mt-2 pt-2 border-t border-slate-800">
-                    <span class="font-bold text-emerald-400">🎁 Lo que le gustaría de Regalo Principal (24 Dic):</span>
+                    <span class="font-bold text-amber-400">💡 Ideas para regalos semanales (Especiales):</span>
+                    <p id="resTargetWeekly" class="text-white font-medium mt-0.5"></p>
+                </div>
+                <div class="mt-2 pt-2 border-t border-slate-800">
+                    <span class="font-bold text-emerald-400">🎁 Regalo Principal (24 Dic):</span>
                     <p id="resTargetMainGift" class="text-white font-semibold mt-0.5"></p>
                 </div>
             </div>
@@ -207,7 +216,7 @@
                     <select id="consultName" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-500">
                         <option value="">-- Elige tu nombre --</option>
                         <option value="Ing. Santiago">Ing. Santiago</option>
-                        <option value="Dolores">Dolores</option>
+                        <option value="Madol">Madol</option>
                         <option value="Diana">Diana</option>
                         <option value="Blanca">Blanca</option>
                         <option value="Paulina">Paulina</option>
@@ -223,7 +232,7 @@
 
     <!-- Modal de Administrador (Protegido por Contraseña) -->
     <div id="adminModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-3xl w-full p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-4xl w-full p-6 md:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center">✕</button>
             
             <div id="adminLoginView">
@@ -254,7 +263,7 @@
 
     <!-- Script de Lógica -->
     <script>
-        const participants = ["Ing. Santiago", "Dolores", "Diana", "Blanca", "Paulina", "Julio"];
+        const participants = ["Ing. Santiago", "Madol", "Diana", "Blanca", "Paulina", "Julio"];
 
         function getAssignments() {
             let data = localStorage.getItem('dti_assignments');
@@ -267,7 +276,7 @@
                 }
                 data = {};
                 participants.forEach((p, i) => {
-                    data[p] = { target: targets[i], registered: false, phone: '', email: '', hobbies: '', favorites: '', mainGift: '' };
+                    data[p] = { target: targets[i], registered: false, phone: '', email: '', hobbies: '', favorites: '', weeklyIdeas: '', mainGift: '' };
                 });
                 localStorage.setItem('dti_assignments', JSON.stringify(data));
             }
@@ -308,6 +317,7 @@
             const email = document.getElementById('email').value;
             const hobbies = document.getElementById('hobbies').value;
             const favorites = document.getElementById('favorites').value;
+            const weeklyIdeas = document.getElementById('weeklyIdeas').value;
             const mainGift = document.getElementById('mainGift').value;
 
             let db = getAssignments();
@@ -316,6 +326,7 @@
             db[name].email = email;
             db[name].hobbies = hobbies;
             db[name].favorites = favorites;
+            db[name].weeklyIdeas = weeklyIdeas;
             db[name].mainGift = mainGift;
             localStorage.setItem('dti_assignments', JSON.stringify(db));
 
@@ -324,7 +335,7 @@
             const targetName = db[name].target;
             notifs.unshift({
                 date: new Date().toLocaleString(),
-                text: `[REGISTRO] ${name} llenó su formato (Deseo principal: "${mainGift}"). Se envió correo a blanzam.160817@gmail.com y WhatsApp a ${phone}.`
+                text: `[REGISTRO] ${name} llenó su formato (Ideas semanales: "${weeklyIdeas}", Principal: "${mainGift}"). Correo enviado a blanzam.160817@gmail.com.`
             });
             localStorage.setItem('dti_notifications', JSON.stringify(notifs));
 
@@ -335,6 +346,7 @@
             document.getElementById('resTarget').innerText = targetName;
             document.getElementById('resTargetHobbies').innerText = "Hobbies: " + db[targetName].hobbies;
             document.getElementById('resTargetFavorites').innerText = "Favoritos: " + db[targetName].favorites;
+            document.getElementById('resTargetWeekly').innerText = db[targetName].weeklyIdeas || "No especificado";
             document.getElementById('resTargetMainGift').innerText = db[targetName].mainGift || "No especificado";
             document.getElementById('resultModal').classList.remove('hidden');
         }
@@ -356,6 +368,7 @@
             document.getElementById('resTarget').innerText = targetName;
             document.getElementById('resTargetHobbies').innerText = "Hobbies: " + db[targetName].hobbies;
             document.getElementById('resTargetFavorites').innerText = "Favoritos: " + db[targetName].favorites;
+            document.getElementById('resTargetWeekly').innerText = db[targetName].weeklyIdeas || "No especificado";
             document.getElementById('resTargetMainGift').innerText = db[targetName].mainGift || "No especificado";
             document.getElementById('resultModal').classList.remove('hidden');
         }
@@ -375,7 +388,7 @@
             let db = getAssignments();
             let tableHtml = `<table class="w-full text-left border-collapse text-slate-300">
                 <thead><tr class="border-b border-slate-800 text-amber-400">
-                <th class="p-2">Participante</th><th class="p-2">Estado</th><th class="p-2">Le tocó a</th><th class="p-2">Gustos y Deseo Principal</th>
+                <th class="p-2">Participante</th><th class="p-2">Estado</th><th class="p-2">Le tocó a</th><th class="p-2">Gustos y Deseos</th>
                 </tr></thead><tbody>`;
 
             for (let p in db) {
@@ -384,7 +397,7 @@
                     <td class="p-2 font-semibold text-white">${p}</td>
                     <td class="p-2">${info.registered ? '✅ Registrado' : '⏳ Pendiente'}</td>
                     <td class="p-2 text-red-400 font-bold">${info.target}</td>
-                    <td class="p-2 text-slate-300 text-[11px]">${info.phone ? '<em>Hobbies:</em> ' + info.hobbies + '<br><em>Fav:</em> ' + info.favorites + '<br><strong class="text-emerald-400">🎁 Regalo Principal:</strong> ' + (info.mainGift || 'N/A') : '-'}</td>
+                    <td class="p-2 text-slate-300 text-[11px]">${info.phone ? '<em>Hobbies:</em> ' + info.hobbies + '<br><strong class="text-amber-400">💡 Semanales:</strong> ' + (info.weeklyIdeas || 'N/A') + '<br><strong class="text-emerald-400">🎁 Principal:</strong> ' + (info.mainGift || 'N/A') : '-'}</td>
                 </tr>`;
             }
             tableHtml += `</tbody></table>`;
